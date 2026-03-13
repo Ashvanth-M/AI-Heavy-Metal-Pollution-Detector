@@ -423,7 +423,7 @@ export function MapView() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h2 className="text-2xl font-bold tracking-tight">Map View</h2>
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight">Map View</h2>
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="flex items-center space-x-2">
             <Checkbox
@@ -510,8 +510,8 @@ export function MapView() {
               )}
             </div>
             
-            <div className="max-h-60 overflow-y-auto border rounded-md">
-              <table className="w-full text-sm">
+            <div className="max-h-60 overflow-y-auto overflow-x-auto border rounded-md">
+              <table className="w-full text-sm min-w-[400px]">
                 <thead className="bg-muted/50 sticky top-0">
                   <tr>
                     <th className="p-2 text-left">Location</th>
@@ -537,7 +537,7 @@ export function MapView() {
       {/* Map section - now on bottom with reduced height */}
       <Card>
         <CardContent className="p-0">
-          <div className="map-container" data-testid="map-container" style={{ height: "400px" }}>
+          <div className="map-container h-[300px] md:h-[400px]" data-testid="map-container">
             <MapContainer
               center={INDIA_BOUNDS.center}
               zoom={INDIA_BOUNDS.zoom}

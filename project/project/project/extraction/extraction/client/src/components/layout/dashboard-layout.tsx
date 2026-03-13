@@ -120,6 +120,15 @@ export function DashboardLayout({ children, activeTab, onTabChange, userRole }: 
       
       {/* Main Content Area */}
       <div className="flex flex-1 overflow-hidden">
+        {/* Mobile overlay backdrop - closes sidebar when tapping outside */}
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+
         {/* Collapsible Sidebar - Hidden by default on mobile, shown as overlay */}
         <motion.aside
           initial={false}
@@ -130,7 +139,7 @@ export function DashboardLayout({ children, activeTab, onTabChange, userRole }: 
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className={`
             bg-sidebar border-r border-sidebar-border flex-shrink-0
-            absolute lg:relative z-50 h-full
+            fixed lg:relative z-50 h-full top-0 left-0
             ${sidebarOpen ? 'block' : 'hidden lg:block'}
           `}
         >
@@ -199,7 +208,7 @@ export function DashboardLayout({ children, activeTab, onTabChange, userRole }: 
           </div>
           
           {/* Content Area with Enhanced Water Metal Pollution Theme */}
-          <div className="flex-1 overflow-auto p-4 md:p-6 bg-gradient-to-br from-background to-muted/30">
+          <div className="flex-1 overflow-auto p-2 md:p-6 bg-gradient-to-br from-background to-muted/30 pb-20 md:pb-6">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -210,7 +219,7 @@ export function DashboardLayout({ children, activeTab, onTabChange, userRole }: 
                 className="h-full animate-dashboard-component"
               >
                 {/* Water metal pollution themed container */}
-                <div className="rounded-lg border border-border bg-card text-card-foreground shadow-sm p-6 min-h-full">
+                <div className="rounded-lg border border-border bg-card text-card-foreground shadow-sm p-3 md:p-6 min-h-full">
                   {children}
                 </div>
               </motion.div>
@@ -218,6 +227,28 @@ export function DashboardLayout({ children, activeTab, onTabChange, userRole }: 
           </div>
         </main>
       </div>
+
+      {/* Mobile Bottom Navigation Bar */}
+      <nav className="fixed bottom-0 left-0 right-0 z-30 bg-card border-t border-border flex md:hidden">
+        {getTabsForRole(userRole).slice(0, 5).map((tab) => {
+          const Icon = tab.icon;
+          const isActive = activeTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => onTabChange(tab.id)}
+              className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 text-xs transition-colors ${
+                isActive
+                  ? 'text-primary font-semibold'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Icon className="w-5 h-5" />
+              <span className="truncate max-w-[56px] leading-tight">{tab.label.split(' ')[0]}</span>
+            </button>
+          );
+        })}
+      </nav>
     </div>
   );
 }

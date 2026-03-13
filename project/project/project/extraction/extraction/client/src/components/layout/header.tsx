@@ -26,7 +26,7 @@ export function Header({ title, onToggleSidebar }: HeaderProps) {
   };
 
   return (
-    <header className="bg-card border-b border-border px-4 py-3 flex items-center justify-between shadow-sm">
+    <header className="bg-card border-b border-border px-3 py-2 md:px-4 md:py-3 flex items-center justify-between shadow-sm">
       <div className="flex items-center space-x-3">
         <Button
           variant="ghost"
@@ -46,7 +46,7 @@ export function Header({ title, onToggleSidebar }: HeaderProps) {
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.2 }}
-            className="text-lg font-bold text-foreground animate-dashboard-header"
+            className="text-sm md:text-lg font-bold text-foreground animate-dashboard-header truncate max-w-[140px] md:max-w-none"
           >
             {title}
           </motion.h2>
