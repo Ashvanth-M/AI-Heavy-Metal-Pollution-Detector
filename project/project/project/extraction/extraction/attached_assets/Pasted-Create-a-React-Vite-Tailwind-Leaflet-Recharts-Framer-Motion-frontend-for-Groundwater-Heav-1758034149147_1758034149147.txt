@@ -1,0 +1,64 @@
+Create a React (Vite + Tailwind + Leaflet + Recharts + Framer Motion) frontend for "Groundwater Heavy Metal Pollution Dashboard" with these features:
+
+1. **Layout & Navigation**
+   - Sidebar with tabs: [Upload Data, Map View, Reports, About].
+   - Responsive grid layout, works on desktop & mobile.
+   - Header with project title + dark mode toggle.
+
+2. **Upload Data Page**
+   - CSV file upload form.
+   - On submit → POST to backend `/upload-csv/`.
+   - Show toast notifications for success/error.
+   - Render results table with columns: sample_id, latitude, longitude, HPI, category.
+   - Add **search bar** + **filter dropdown** (Safe/Moderate/Critical).
+   - Buttons:
+     - **Export as PDF** → calls backend `/generate-report/` and downloads PDF.
+     - **Export as Excel** → generates .xlsx file client-side from table data.
+
+3. **Map View Page**
+   - Leaflet map centered on India.
+   - Circle markers for each sample, colored:
+     - Green: HPI < 100 (Safe)
+     - Orange: 100 ≤ HPI < 180 (Moderate)
+     - Red: HPI ≥ 180 (Critical)
+   - Popup: sample_id, HPI, category, and recommendation text:
+     - Low → "Safe for drinking"
+     - Moderate → "Needs monitoring"
+     - High → "Unsafe - avoid usage"
+   - **Legend** at bottom-left.
+   - Toggle between **Markers View** and **Heatmap Layer**.
+
+4. **Reports Page**
+   - Summary cards with animations:
+     - Total Samples Uploaded
+     - % Safe
+     - % Moderate
+     - % Critical
+   - **Bar Chart**: count of samples per category.
+   - **Line Chart**: average HPI trend over time (if "date" field present).
+   - **Download All Reports (PDF)** button.
+
+5. **About Page**
+   - Short explanation of heavy metal pollution problem.
+   - Display formula for HPI.
+   - Team member cards with photo placeholders.
+   - Contact info.
+
+6. **Extra Judge-Impress Features**
+   - **Dark Mode toggle** (persistent in local storage).
+   - **Alert banner** on dashboard: 
+     - If any sample HPI > 180 → show red warning banner: "⚠️ Critical contamination detected in X samples!"
+   - **AI Recommendation Section**: simple rules-based text:
+     - If >50% samples Safe → "Overall water quality acceptable."
+     - If >30% Critical → "Urgent action required – unsafe water detected."
+   - Smooth animations with Framer Motion when switching tabs.
+
+7. **Technical**
+   - Use axios for backend calls.
+   - Use react-leaflet + leaflet.heat for maps.
+   - Use jspdf or react-pdf for client-side PDF generation (if backend report not available).
+   - Example backend response:
+     [
+       { "sample_id": "S001", "latitude": 11.01, "longitude": 76.95, "hpi": 120, "category": "Moderate" }
+     ]
+   - Keep components modular (Table, Map, ReportCard).

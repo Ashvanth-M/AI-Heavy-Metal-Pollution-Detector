@@ -1,0 +1,11 @@
+latitude,longitude,location,value,lead,cadmium,arsenic
+13.0827,80.2707,"Chennai Low Risk",85.5,0.002,0.0005,0.003
+12.9716,77.5946,"Bangalore Medium Risk",145.3,0.008,0.002,0.012
+19.0760,72.8777,"Mumbai High Risk",220.8,0.015,0.005,0.018
+28.7041,77.1025,"Delhi Critical Risk",95.2,0.004,0.001,0.005
+22.5726,88.3639,"Kolkata Safe Risk",155.4,0.007,0.0015,0.008
+17.3850,78.4867,"Hyderabad Low Risk",78.7,0.003,0.0008,0.004
+26.9124,75.7873,"Jaipur Medium Risk",134.2,0.009,0.0025,0.011
+23.0225,72.5714,"Ahmedabad High Risk",198.5,0.018,0.006,0.022
+12.2958,76.6394,"Mysore Safe Risk",89.6,0.003,0.0007,0.004
+21.1458,79.0882,"Nagpur Critical Risk",187.3,0.020,0.007,0.025

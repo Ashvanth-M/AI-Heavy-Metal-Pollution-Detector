@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "export": "Exporter",
+    "import": "Importer"
+  },
+  "navigation": {
+    "dashboard": "Tableau de Bord",
+    "samples": "Échantillons",
+    "analysis": "Analyse",
+    "reports": "Rapports",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "ai": {
+    "title": "Assistant IA pour la Qualité de l'Eau",
+    "description": "Posez des questions sur les données et l'analyse de la qualité de l'eau",
+    "placeholder": "Demandez à propos de HMPI, métaux lourds ou qualité de l'eau...",
+    "welcome": "Bonjour ! Je suis votre assistant HMPI (Indice de Pollution par Métaux Lourds). Vous pouvez me poser des questions sur les calculs HMPI, les impacts sur la santé, les catégories de risque, les métaux lourds spécifiques ou les stratégies d'atténuation. Comment puis-je vous aider aujourd'hui ?",
+    "error": "Désolé, j'ai rencontré une erreur lors du traitement de votre demande. Veuillez réessayer."
+  },
+  "language": {
+    "select": "Sélectionner la Langue",
+    "english": "Anglais",
+    "spanish": "Espagnol", 
+    "french": "Français",
+    "hindi": "Hindi"
+  }
+}

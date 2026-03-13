@@ -1,0 +1,6 @@
+latitude	longitude	location	value	hpi	risk_level	contamination_source
+13.0827	80.2707	Chennai	85.4	120.5	Medium Risk	Industrial discharge
+19.0760	72.8777	Mumbai	145.8	175.2	High Risk	Textile manufacturing
+28.7041	77.1025	Delhi	175.3	195.8	High Risk	Heavy traffic pollution
+12.9716	77.5946	Bangalore	65.7	88.3	Low Risk	Urban runoff
+22.5726	88.3639	Kolkata	130.5	158.9	Medium Risk	Coal power plant

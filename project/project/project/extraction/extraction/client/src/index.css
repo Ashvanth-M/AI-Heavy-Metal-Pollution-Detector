@@ -1,0 +1,400 @@
+/* Leaflet CSS imported via CDN with fallback */
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Water metal pollution theme colors */
+  --background: hsl(195, 20%, 98%); /* Light blue-gray background */
+  --foreground: hsl(210, 20%, 15%); /* Dark blue-gray text */
+  --card: hsl(0, 0%, 100%); /* White cards */
+  --card-foreground: hsl(210, 20%, 15%); /* Dark blue-gray text on cards */
+  --popover: hsl(0, 0%, 100%); /* White popovers */
+  --popover-foreground: hsl(210, 20%, 15%); /* Dark blue-gray text on popovers */
+  
+  /* Primary color - water blue */
+  --primary: hsl(195, 80%, 40%); /* Vibrant water blue */
+  --primary-foreground: hsl(0, 0%, 100%); /* White text on primary */
+  
+  /* Secondary color - metal gray */
+  --secondary: hsl(210, 10%, 85%); /* Light metal gray */
+  --secondary-foreground: hsl(210, 20%, 15%); /* Dark text on secondary */
+  
+  /* Muted colors */
+  --muted: hsl(210, 15%, 90%); /* Light gray */
+  --muted-foreground: hsl(215, 10%, 45%); /* Medium gray text */
+  
+  /* Accent color - pollution warning */
+  --accent: hsl(45, 100%, 50%); /* Warning yellow */
+  --accent-foreground: hsl(0, 0%, 0%); /* Black text on accent */
+  
+  /* Destructive color - danger red */
+  --destructive: hsl(0, 80%, 50%); /* Danger red */
+  --destructive-foreground: hsl(0, 0%, 100%); /* White text on destructive */
+  
+  /* Borders and inputs */
+  --border: hsl(210, 20%, 85%); /* Light blue-gray border */
+  --input: hsl(210, 20%, 85%); /* Light blue-gray input */
+  --ring: hsl(195, 80%, 40%); /* Water blue ring */
+  
+  /* Chart colors for metal pollution visualization */
+  --chart-1: hsl(195, 80%, 40%); /* Water blue */
+  --chart-2: hsl(0, 80%, 50%); /* Lead red */
+  --chart-3: hsl(120, 60%, 40%); /* Cadmium green */
+  --chart-4: hsl(270, 80%, 50%); /* Mercury purple */
+  --chart-5: hsl(45, 100%, 50%); /* Chromium yellow */
+  
+  /* Sidebar colors */
+  --sidebar: hsl(195, 30%, 95%); /* Light blue-gray sidebar */
+  --sidebar-foreground: hsl(210, 20%, 15%); /* Dark blue-gray text */
+  --sidebar-primary: hsl(195, 80%, 40%); /* Water blue */
+  --sidebar-primary-foreground: hsl(0, 0%, 100%); /* White text */
+  --sidebar-accent: hsl(210, 15%, 90%); /* Light gray accent */
+  --sidebar-accent-foreground: hsl(210, 20%, 15%); /* Dark text */
+  --sidebar-border: hsl(210, 20%, 85%); /* Light blue-gray border */
+  --sidebar-ring: hsl(195, 80%, 40%); /* Water blue ring */
+  
+  --font-sans: Inter, ui-sans-serif, system-ui;
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Dark theme for water metal pollution */
+  --background: hsl(210, 30%, 10%); /* Dark blue background */
+  --foreground: hsl(195, 20%, 90%); /* Light blue-gray text */
+  --card: hsl(210, 25%, 15%); /* Dark blue-gray cards */
+  --card-foreground: hsl(195, 20%, 90%); /* Light text on cards */
+  --popover: hsl(210, 25%, 15%); /* Dark blue-gray popovers */
+  --popover-foreground: hsl(195, 20%, 90%); /* Light text on popovers */
+  
+  /* Primary color - water blue */
+  --primary: hsl(195, 80%, 50%); /* Bright water blue */
+  --primary-foreground: hsl(0, 0%, 100%); /* White text */
+  
+  /* Secondary color - metal gray */
+  --secondary: hsl(210, 15%, 25%); /* Dark metal gray */
+  --secondary-foreground: hsl(195, 20%, 90%); /* Light text */
+  
+  /* Muted colors */
+  --muted: hsl(210, 15%, 20%); /* Dark gray */
+  --muted-foreground: hsl(215, 10%, 65%); /* Medium gray text */
+  
+  /* Accent color - pollution warning */
+  --accent: hsl(45, 100%, 60%); /* Bright warning yellow */
+  --accent-foreground: hsl(0, 0%, 0%); /* Black text */
+  
+  /* Destructive color - danger red */
+  --destructive: hsl(0, 80%, 60%); /* Bright danger red */
+  --destructive-foreground: hsl(0, 0%, 100%); /* White text */
+  
+  /* Borders and inputs */
+  --border: hsl(210, 20%, 25%); /* Dark blue-gray border */
+  --input: hsl(210, 20%, 25%); /* Dark blue-gray input */
+  --ring: hsl(195, 80%, 50%); /* Bright water blue ring */
+  
+  /* Sidebar colors */
+  --sidebar: hsl(210, 30%, 8%); /* Very dark blue sidebar */
+  --sidebar-foreground: hsl(195, 20%, 90%); /* Light blue-gray text */
+  --sidebar-primary: hsl(195, 80%, 50%); /* Bright water blue */
+  --sidebar-primary-foreground: hsl(0, 0%, 100%); /* White text */
+  --sidebar-accent: hsl(210, 15%, 20%); /* Dark gray accent */
+  --sidebar-accent-foreground: hsl(195, 20%, 90%); /* Light text */
+  --sidebar-border: hsl(210, 20%, 25%); /* Dark blue-gray border */
+  --sidebar-ring: hsl(195, 80%, 50%); /* Bright water blue ring */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-slide-in-left {
+    animation: slide-in-left 0.3s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s infinite;
+  }
+  
+  /* Water metal pollution theme animations */
+  .animate-slide-in-top {
+    animation: slide-in-top 0.5s ease-out;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+  
+  /* Enhanced animations for dashboard components */
+  .animate-dashboard-component {
+    animation: dashboard-component 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  
+  .animate-dashboard-header {
+    animation: dashboard-header 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  
+  .animate-dashboard-card {
+    animation: dashboard-card 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+}
+
+@keyframes slide-in-left {
+  from { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fade-in {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* New animations for top-down layout */
+@keyframes slide-in-top {
+  from { 
+    transform: translateY(-50px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fade-in-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Enhanced dashboard animations */
+@keyframes dashboard-component {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dashboard-header {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dashboard-card {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Leaflet map styles - Enhanced */
+.leaflet-container {
+  font-family: var(--font-sans);
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply bg-card text-card-foreground border border-border shadow-lg;
+  border-radius: 0.5rem;
+  padding: 0;
+}
+
+.leaflet-popup-tip {
+  @apply border-t-card;
+}
+
+.leaflet-popup-close-button {
+  @apply text-muted-foreground hover:text-foreground;
+  font-size: 16px;
+  padding: 4px;
+}
+
+/* Enhanced popup styling for clean appearance */
+.popup-content {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.popup-content div {
+  margin: 0;
+}
+
+/* Custom marker styling */
+.custom-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-div-icon div {
+  transition: all 0.2s ease;
+}
+
+.custom-div-icon:hover div {
+  transform: scale(1.1);
+}
+
+.leaflet-control-zoom a {
+  @apply bg-card border-border text-foreground;
+}
+
+.leaflet-control-zoom a:hover {
+  @apply bg-accent;
+}
+
+.leaflet-control-attribution {
+  @apply bg-card text-muted-foreground text-xs;
+  opacity: 0.8;
+}
+
+/* Map container responsive fixes */
+.map-container {
+  height: 20rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .map-container {
+    height: 24rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .map-container {
+    height: 28rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .map-container {
+    height: 32rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .map-container {
+    height: 36rem;
+  }
+}
+
+/* Mobile-specific map improvements */
+@media (max-width: 640px) {
+  .leaflet-popup-content {
+    margin: 8px 10px;
+    max-width: 280px;
+  }
+  
+  .leaflet-popup-content-wrapper {
+    border-radius: 8px;
+  }
+  
+  .leaflet-control-zoom {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  
+  .leaflet-control-zoom a {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+  }
+}
+
+/* Water metal pollution theme enhancements */
+.pollution-warning {
+  @apply bg-accent text-accent-foreground;
+}
+
+.pollution-danger {
+  @apply bg-destructive text-destructive-foreground;
+}
+
+.pollution-safe {
+  @apply bg-primary text-primary-foreground;
+}
+
+.pollution-info {
+  @apply bg-secondary text-secondary-foreground;
+}
+
+/* Dashboard component styling */
+.dashboard-card {
+  @apply bg-card text-card-foreground border border-border rounded-lg shadow-sm transition-all duration-300 hover:shadow-md;
+}
+
+.dashboard-card-header {
+  @apply px-6 py-4 border-b border-border;
+}
+
+.dashboard-card-title {
+  @apply text-lg font-semibold;
+}
+
+.dashboard-card-content {
+  @apply p-6;
+}
+
+/* Enhanced tab styling for top navigation */
+.top-tab {
+  @apply flex items-center space-x-2 h-10 px-3 mr-2 whitespace-nowrap rounded-md transition-colors;
+}
+
+.top-tab-active {
+  @apply bg-primary text-primary-foreground;
+}
+
+.top-tab-inactive {
+  @apply text-muted-foreground hover:text-foreground hover:bg-muted;
+}

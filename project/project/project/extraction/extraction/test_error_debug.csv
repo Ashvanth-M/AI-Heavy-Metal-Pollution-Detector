@@ -1,0 +1,4 @@
+latitude,longitude,location,lead,cadmium,arsenic
+13.0827,80.2707,"Chennai Test",0.008,0.002,0.009
+19.0760,72.8777,"Mumbai Test",0.015,0.005,0.014
+INVALID_LAT,INVALID_LNG,"Invalid Test",0.020,0.006,0.016

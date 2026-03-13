@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "samples": "Samples",
+    "analysis": "Analysis",
+    "reports": "Reports",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "ai": {
+    "title": "AI Water Quality Assistant",
+    "description": "Ask questions about water quality data and analysis",
+    "placeholder": "Ask about HMPI, heavy metals, or water quality...",
+    "welcome": "Hello! I'm your HMPI (Heavy Metal Pollution Index) assistant. You can ask me about HMPI calculations, health impacts, risk categories, specific heavy metals, or mitigation strategies. How can I help you today?",
+    "error": "Sorry, I encountered an error while processing your request. Please try again."
+  },
+  "language": {
+    "select": "Select Language",
+    "english": "English",
+    "spanish": "Spanish", 
+    "french": "French",
+    "hindi": "Hindi"
+  }
+}

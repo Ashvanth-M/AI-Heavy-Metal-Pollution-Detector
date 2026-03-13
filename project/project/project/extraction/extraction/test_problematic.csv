@@ -1,0 +1,5 @@
+latitude,longitude,place,metals_lead,metals_cadmium
+13.0827,80.2707,"Test Location 1",0.012,0.004
+19.0760,72.8777,"Test Location 2",0.015,0.005
+"28.7041","77.1025","Test, Location 3",0.018,"0.006"
+invalid_coordinates,invalid_coordinates,"Invalid Test",0.020,0.007
